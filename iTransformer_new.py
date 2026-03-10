@@ -8,6 +8,12 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.calibration import calibration_curve
 
+#epochs = 100으로 수정, ECE 추가, seed 추가
+
+SEED = 42
+torch.manual_seed(SEED)
+np.random.seed(SEED)
+
 # 1. 환경 설정 (1660 Super - CUDA / M1 Pro - MPS)
 device = torch.device("cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu"))
 print(f"Using device: {device}")
