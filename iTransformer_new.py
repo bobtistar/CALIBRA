@@ -20,7 +20,7 @@ print(f"Using device: {device}")
 
 # 2. 데이터 준비 (BTC 수익률)
 df = yf.download('BTC-USD', start='2020-01-01', end='2026-01-01', interval='1d')
-returns = df['Close'].pct_change().dropna().values.reshape(-1, 1)
+returns = df['Close'].pct_change().dropna().values.reshape(-1, 1) #현재가격과 바로 이전 가격 사이의 수익률 차이 계산, numpy로 변환, 1차원 배열을 2차원 열 벡터로 변환
 
 scaler = StandardScaler()
 returns_scaled = scaler.fit_transform(returns)
