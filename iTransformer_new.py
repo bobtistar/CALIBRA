@@ -19,7 +19,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else ("mps" if torch.b
 print(f"Using device: {device}")
 
 # 2. 데이터 준비 (BTC 수익률)
-df = yf.download('BTC-USD', start='2021-01-01', end='2026-01-01', interval='1d')
+df = yf.download('BTC-USD', start='2020-01-01', end='2026-01-01', interval='1d')
 returns = df['Close'].pct_change().dropna().values.reshape(-1, 1)
 
 scaler = StandardScaler()
